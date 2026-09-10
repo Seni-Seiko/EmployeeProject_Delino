@@ -1,4 +1,7 @@
-package Version1;
+import Version1.BasePlusCommissionEmployee;
+import Version1.CommissionEmployee;
+import Version1.HourlyEmployee;
+import Version1.PieceWorkerEmployee;
 
 public class Main {
     public static void main(String[] args) {
