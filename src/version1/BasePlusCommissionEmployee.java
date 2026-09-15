@@ -1,4 +1,4 @@
-package Version1;
+package version1;
 
 public class BasePlusCommissionEmployee {
     private int empId;

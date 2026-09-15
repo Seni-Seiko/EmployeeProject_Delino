@@ -1,7 +1,7 @@
-import Version1.BasePlusCommissionEmployee;
-import Version1.CommissionEmployee;
-import Version1.HourlyEmployee;
-import Version1.PieceWorkerEmployee;
+import version1.BasePlusCommissionEmployee;
+import version1.CommissionEmployee;
+import version1.HourlyEmployee;
+import version1.PieceWorkerEmployee;
 
 public class Main {
     public static void main(String[] args) {
