@@ -1,0 +1,99 @@
+package version5;
+
+import java.util.Objects;
+
+public class Name implements Cloneable {
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String suffix;
+
+    public Name() {
+        this.firstName = "N/A";
+        this.middleName = "";
+        this.lastName = "N/A";
+        this.suffix = "";
+    }
+
+    public Name(String firstName, String lastName) {
+        this(firstName, "", lastName, "");
+    }
+
+    public Name(String firstName, String middleName, String lastName) {
+        this(firstName, middleName, lastName, "");
+    }
+
+    public Name(String firstName, String middleName, String lastName, String suffix) {
+        setFirstName(firstName);
+        setMiddleName(middleName);
+        setLastName(lastName);
+        setSuffix(suffix);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName == null || firstName.trim().isEmpty() ? "N/A" : firstName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName == null ? "" : middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName == null || lastName.trim().isEmpty() ? "N/A" : lastName;
+    }
+
+    public String getSuffix() {
+        return suffix;
+    }
+
+    public void setSuffix(String suffix) {
+        this.suffix = suffix == null ? "" : suffix;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        result.append(lastName).append(", ").append(firstName);
+        if (!middleName.isEmpty()) {
+            result.append(" ").append(middleName.charAt(0)).append(".");
+        }
+        if (!suffix.isEmpty()) {
+            result.append(" ").append(suffix);
+        }
+        return result.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Name)) return false;
+        Name other = (Name) obj;
+        return firstName.equalsIgnoreCase(other.firstName) && middleName.equalsIgnoreCase(other.middleName) && lastName.equalsIgnoreCase(other.lastName) && suffix.equalsIgnoreCase(other.suffix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName.toLowerCase(), middleName.toLowerCase(), lastName.toLowerCase(), suffix.toLowerCase());
+    }
+
+    @Override
+    public Name clone() {
+        try {
+            return (Name) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
+}
